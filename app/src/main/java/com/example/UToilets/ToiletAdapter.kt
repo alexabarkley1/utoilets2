@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.wordsapp
+package com.example.utoilets
 
 import android.content.Intent
 import android.os.Build
@@ -29,16 +29,16 @@ import androidx.recyclerview.widget.RecyclerView
 /**
  * Adapter for the [RecyclerView] in [MainActivity].
  */
-class LetterAdapter :
-    RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
+class ToiletAdapter :
+    RecyclerView.Adapter<ToiletAdapter.ToiletViewHolder>() {
 
-    // Generates a [CharRange] from 'A' to 'Z' and converts it to a list
-    private val list = ('A').rangeTo('Z').toList()
+    // Creating a list of bathrooms on campus
+    private val list = listOf("Painter Hall 5th Floor", "Welch Lecture Hall 3.502", "Waggoner First Floor", "WCP First Floor")
 
     /**
      * Provides a reference for the views needed to display items in your list.
      */
-    class LetterViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    class ToiletViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val button = view.findViewById<Button>(R.id.button_item)
     }
 
@@ -49,20 +49,20 @@ class LetterAdapter :
     /**
      * Creates new views with R.layout.item_view as its template
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LetterViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToiletViewHolder {
         val layout = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.item_view, parent, false)
         
         // Setup custom accessibility delegate to set the text read
         layout.accessibilityDelegate = Accessibility
-        return LetterViewHolder(layout)
+        return ToiletViewHolder(layout)
     }
 
     /**
      * Replaces the content of an existing view with new data
      */
-    override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ToiletViewHolder, position: Int) {
         val item = list.get(position)
         holder.button.text = item.toString()
 
@@ -74,7 +74,7 @@ class LetterAdapter :
             // Add the selected letter to the intent as extra data
             // The text of Buttons are [CharSequence], a list of characters,
             // so it must be explicitly converted into a [String].
-            intent.putExtra(DetailActivity.LETTER, holder.button.text.toString())
+            intent.putExtra(DetailActivity.TOILET, holder.button.text.toString())
             // Start an activity using the data and destination from the Intent.
             context.startActivity(intent)
         }

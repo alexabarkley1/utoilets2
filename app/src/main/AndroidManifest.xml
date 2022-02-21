@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.wordsapp">
+    package="com.example.utoilets">
 
     <application
         android:allowBackup="true"
@@ -25,9 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Words">
         <activity
-            android:name=".DetailActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
+            android:name="com.example.utoilets.DetailActivity"
+            android:parentActivityName="com.example.utoilets.MainActivity" />
+        <activity android:name="com.example.utoilets.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

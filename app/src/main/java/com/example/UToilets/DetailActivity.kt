@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.wordsapp
+package com.example.utoilets
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wordsapp.databinding.ActivityDetailBinding
+import com.example.utoilets.databinding.ActivityDetailBinding
 
 
 class DetailActivity : AppCompatActivity() {
@@ -29,7 +29,7 @@ class DetailActivity : AppCompatActivity() {
      * a DetailActivity instance.
      */
     companion object {
-        const val LETTER = "letter"
+        const val TOILET = "toilet"
         const val SEARCH_PREFIX = "https://www.google.com/search?q="
     }
 
@@ -45,17 +45,17 @@ class DetailActivity : AppCompatActivity() {
         // Retrieve the LETTER from the Intent extras
         // intent.extras.getString returns String? (String or null)
         // so toString() guarantees that the value will be a String
-        val letterId = intent?.extras?.getString(LETTER).toString()
+        val toiletId = intent?.extras?.getString(TOILET).toString()
 
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = WordAdapter(letterId, this)
+        recyclerView.adapter = WordAdapter(toiletId, this)
 
         // Adds a [DividerItemDecoration] between items
         recyclerView.addItemDecoration(
             DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         )
 
-        title = getString(R.string.detail_prefix) + " " + letterId
+        title = getString(R.string.detail_prefix) + " " + toiletId
     }
 }
