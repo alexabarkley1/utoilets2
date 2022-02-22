@@ -44,7 +44,7 @@ class WordAdapter(private val toiletId: String, context: Context, private val da
         filteredToilets = dataset
             // Returns items in a collection if the conditional clause is true,
             // in this case if a toilet id matches.
-            .filter { it.stringResourceId.toString() == toiletId }
+            .filter { context.resources.getString(it.stringResourceId) == toiletId}
     }
 
     class WordViewHolder(val view: View) : RecyclerView.ViewHolder(view) {

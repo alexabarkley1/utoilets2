@@ -15,6 +15,7 @@
  */
 package com.example.utoilets.adapter
 
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.view.LayoutInflater
@@ -31,11 +32,11 @@ import com.example.utoilets.R
 /**
  * Adapter for the [RecyclerView] in [MainActivity].
  */
-class ToiletAdapter :
+class ToiletAdapter(context: Context) :
     RecyclerView.Adapter<ToiletAdapter.ToiletViewHolder>() {
 
     // Creating a list of bathrooms on campus
-    private val list = listOf(R.string.toiletBuilding1.toString(), R.string.toiletBuilding1.toString())
+    private val list = listOf(context.resources.getString(R.string.toiletBuilding1), context.resources.getString(R.string.toiletBuilding2))
 
     /**
      * Provides a reference for the views needed to display items in your list.
@@ -66,7 +67,7 @@ class ToiletAdapter :
      */
     override fun onBindViewHolder(holder: ToiletViewHolder, position: Int) {
         val item = list.get(position)
-        holder.button.text = item.toString()
+        holder.button.text = item
 
         // Assigns a [OnClickListener] to the button contained in the [ViewHolder]
         holder.button.setOnClickListener {
