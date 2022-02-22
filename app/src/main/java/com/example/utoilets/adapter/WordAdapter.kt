@@ -35,9 +35,17 @@ import com.example.utoilets.model.Toilet
 /**
  * Adapter for the [RecyclerView] in [DetailActivity].
  */
-class WordAdapter(private val letterId: String, context: Context, private val dataset: List<Toilet>) :
+class WordAdapter(private val toiletId: String, context: Context, private val dataset: List<Toilet>) :
     RecyclerView.Adapter<WordAdapter.WordViewHolder>() {
 
+    private val filteredToilets: List<Toilet>
+
+    init {
+        filteredToilets = dataset
+            // Returns items in a collection if the conditional clause is true,
+            // in this case if a toilet id matches.
+            .filter { it.stringResourceId.toString() == toiletId }
+    }
 
     class WordViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.item_title)
@@ -45,7 +53,7 @@ class WordAdapter(private val letterId: String, context: Context, private val da
         val button = view.findViewById<Button>(R.id.button_item)
     }
 
-    override fun getItemCount(): Int = dataset.size
+    override fun getItemCount(): Int = filteredToilets.size
 
     /**
      * Creates new views with R.layout.toilet_view as its template
@@ -66,7 +74,7 @@ class WordAdapter(private val letterId: String, context: Context, private val da
      */
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
 
-        val item = dataset[position]
+        val item = filteredToilets[position]
         // Needed to call startActivity
         val context = holder.view.context
 
