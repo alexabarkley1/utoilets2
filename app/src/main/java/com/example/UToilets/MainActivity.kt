@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             recyclerView.layoutManager = GridLayoutManager(this, 4)
         }
-        recyclerView.adapter = ToiletAdapter()
+        recyclerView.adapter = ToiletAdapter(this)
     }
 
     private fun setIcon(menuItem: MenuItem?) {

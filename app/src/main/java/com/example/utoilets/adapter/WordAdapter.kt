@@ -79,7 +79,7 @@ class WordAdapter(private val toiletId: String, context: Context, private val da
         val context = holder.view.context
 
         // Set the text of the WordViewHolder
-        holder.button.text = item.stringResourceId.toString()
+        holder.button.text = toiletId
 
         holder.textView.text = context.resources.getString(item.string2ResourceId)
         holder.imageView.setImageResource(item.imageResourceId)
