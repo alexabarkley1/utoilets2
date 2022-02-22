@@ -23,6 +23,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.utoilets.adapter.ToiletAdapter
 import com.example.utoilets.databinding.ActivityMainBinding
 
 /**

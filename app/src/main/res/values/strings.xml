@@ -20,4 +20,8 @@
     <string name="action_switch_layout">Switch Layout</string>
     <string name="look_up_word">Look up building directions on Google</string>
     <string name="look_up_words">Show Stored Bathrooms</string>
+    <string name="toiletBuilding1">Painter Hall</string>
+    <string name="toiletDescription1">Super sexy bathroom</string>
+
+
 </resources>

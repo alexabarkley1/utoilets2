@@ -19,6 +19,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.utoilets.adapter.WordAdapter
+import com.example.utoilets.data.Datasource
 import com.example.utoilets.databinding.ActivityDetailBinding
 
 
@@ -47,9 +49,10 @@ class DetailActivity : AppCompatActivity() {
         // so toString() guarantees that the value will be a String
         val toiletId = intent?.extras?.getString(TOILET).toString()
 
+        val myDataset = Datasource().loadToilets()
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = WordAdapter(toiletId, this)
+        recyclerView.adapter = WordAdapter(toiletId, this, myDataset)
 
         // Adds a [DividerItemDecoration] between items
         recyclerView.addItemDecoration(
